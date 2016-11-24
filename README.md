@@ -7,7 +7,7 @@ export file from data
   const data: IData[]
 
   interface IData {
-    th: string[]
+    th?: string[]
     td: string[][]
   } 
 ```
@@ -16,19 +16,6 @@ export file from data
 
 ```shell
 npm i export.js --save
-```
-
-```javascript
-const exportCSV = require('export.js/csv')
-
-const data = [{
-  th: ['1', '2', '3'],
-  td: [
-    ['a', 'b', 'c'],
-    ['d', 'e', 'f', 'g'],
-  ]
-}]
-exportCSV('filename', data)
 ```
 
 ```typescript

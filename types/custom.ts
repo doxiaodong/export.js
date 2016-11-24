@@ -1,4 +1,4 @@
 export interface IExportData {
-  th: string[]
+  th?: string[]
   td: string[][]
 }

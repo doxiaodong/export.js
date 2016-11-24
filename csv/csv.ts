@@ -9,8 +9,10 @@ export function CSV(data: IExportData[]) {
   let ret = ''
   data.forEach((d) => {
     // th
-    let thLine = d.th.join(CSVConfig.delimiter) + CSVConfig.newLine
-    ret += thLine
+    if (d.th) {
+      let thLine = d.th.join(CSVConfig.delimiter) + CSVConfig.newLine
+      ret += thLine
+    }
     // td
     const tds = d.td.map((td) => {
       return td.join(CSVConfig.delimiter)
