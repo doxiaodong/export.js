@@ -19,7 +19,7 @@
         "singleline": "never"
       }
     ],
-    "object-literal-key-quotes": false,
+    "object-literal-key-quotes": [false],
     "object-literal-sort-keys": false,
     "member-ordering": [
       true,
@@ -56,9 +56,9 @@
         "variable-declaration": "space"
       }
     ],
-    "ordered-imports": false,
-    "no-consecutive-blank-lines": true,
+    "ordered-imports": [false],
+    "no-consecutive-blank-lines": [true],
     "object-literal-shorthand": false,
-    "only-arrow-functions": false
+    "only-arrow-functions": [false]
   }
 }

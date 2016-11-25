@@ -5,17 +5,19 @@ const CSVConfig = {
   newLine: '\r\n'
 }
 
-export function CSV(data: IExportData[]) {
+export function CSV(data: IExportData[]): string {
   let ret = ''
   data.forEach((d) => {
     // th
     if (d.th) {
-      let thLine = d.th.join(CSVConfig.delimiter) + CSVConfig.newLine
+      const newTh = d.th.map((value) => fixCSVField(value))
+      let thLine = newTh.join(CSVConfig.delimiter) + CSVConfig.newLine
       ret += thLine
     }
     // td
     const tds = d.td.map((td) => {
-      return td.join(CSVConfig.delimiter)
+      const newTd = td.map((value) => fixCSVField(value))
+      return newTd.join(CSVConfig.delimiter)
     })
     let tdLines = tds.join(CSVConfig.newLine) + CSVConfig.newLine
     ret += tdLines
@@ -24,7 +26,7 @@ export function CSV(data: IExportData[]) {
   return ret
 }
 
-function fixCSVField(value: string) {
+function fixCSVField(value: string): string {
   const addQuotes = (value.indexOf(',') !== -1) || (value.indexOf('\r') !== -1) || (value.indexOf('\n') !== -1)
   const replaceDoubleQuotes = (value.indexOf('"') !== -1)
   if (replaceDoubleQuotes) {
