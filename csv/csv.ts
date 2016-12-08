@@ -6,7 +6,7 @@ const CSVConfig = {
 }
 
 export function CSV(data: IExportData[]): string {
-  let ret = ''
+  let ret = '\uFEFF' // fix unicode show error
   data.forEach((d) => {
     // th
     if (d.th) {
