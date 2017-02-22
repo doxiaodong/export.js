@@ -3,7 +3,7 @@ import { office } from './office'
 import { IExportData } from '../types/custom'
 
 const type = 'xls'
-const charset = `application/vnd.ms-excel`
+const charset = `application/vnd.ms-excel;charset=UTF-8`
 
 export function exportXLS(filename: string, data: IExportData[]) {
   const exportData = office(data, charset, type)
